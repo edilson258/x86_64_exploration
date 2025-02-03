@@ -1,3 +1,5 @@
+;; This asm program will sum two ints and use the result as exit code
+
 section .text
   global _start
 

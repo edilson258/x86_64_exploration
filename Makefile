@@ -2,7 +2,7 @@ ASSEMBLER=nasm
 ASSEMBLER_FLAGS=-f elf64
 LINKER=ld
 
-all: hello_world sum_int64
+all: hello_world sum_int64 mem_read_write
 
 hello_world:
 	$(ASSEMBLER) $(ASSEMBLER_FLAGS) hello_world.asm -o hello_world.o
@@ -12,5 +12,9 @@ sum_int64:
 	$(ASSEMBLER) $(ASSEMBLER_FLAGS) sum_int64.asm -o sum_int64.o
 	$(LINKER) sum_int64.o -o sum_int64
 
+mem_read_write:
+	$(ASSEMBLER) $(ASSEMBLER_FLAGS) mem_read_write.asm -o mem_read_write.o
+	$(LINKER) mem_read_write.o -o mem_read_write
+
 clean:
-	rm hello_world hello_world.o sum_int64 sum_int64.o
+	rm hello_world hello_world.o sum_int64 sum_int64.o mem_read_write mem_read_write.o
